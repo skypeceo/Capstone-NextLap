@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# NextLap released data (not duplicated in the repo; see Hito1/README.md)
+base_NextLap/
+*.zip
