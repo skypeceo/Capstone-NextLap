@@ -1,0 +1,98 @@
+{
+  "run_by": "team (own execution)",
+  "test_used": false,
+  "seed": 414,
+  "train_rows": 5772,
+  "validation_rows": 1808,
+  "train_rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "validation_rounds": [
+    8,
+    9
+  ],
+  "features": [
+    "current_lap_s",
+    "recent_mean_s",
+    "current_lap_number",
+    "current_tyre_life",
+    "current_compound",
+    "current_team"
+  ],
+  "target": "next_lap_s",
+  "metric": "MAE in seconds",
+  "preprocessing_fit_on": "train only (sklearn Pipeline)",
+  "results": [
+    {
+      "model": "train_median",
+      "population": "all_validation",
+      "n": 1808,
+      "MAE_s": 11.37611117256637
+    },
+    {
+      "model": "train_median",
+      "population": "round_8",
+      "n": 1066,
+      "MAE_s": 11.715781425891182
+    },
+    {
+      "model": "train_median",
+      "population": "round_9",
+      "n": 742,
+      "MAE_s": 10.88812129380054
+    },
+    {
+      "model": "persistence",
+      "population": "all_validation",
+      "n": 1808,
+      "MAE_s": 0.40928871681415924
+    },
+    {
+      "model": "persistence",
+      "population": "round_8",
+      "n": 1066,
+      "MAE_s": 0.4005159474671669
+    },
+    {
+      "model": "persistence",
+      "population": "round_9",
+      "n": 742,
+      "MAE_s": 0.42189218328840966
+    },
+    {
+      "model": "OLS_reference",
+      "population": "all_validation",
+      "n": 1808,
+      "MAE_s": 0.38670695036404323
+    },
+    {
+      "model": "OLS_reference",
+      "population": "round_8",
+      "n": 1066,
+      "MAE_s": 0.3735705571218997
+    },
+    {
+      "model": "OLS_reference",
+      "population": "round_9",
+      "n": 742,
+      "MAE_s": 0.4055794506283627
+    }
+  ],
+  "versions": {
+    "python": "3.13.5",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1"
+  },
+  "sha256": {
+    "train_clean_v1.csv": "43544f38cc9ef32b44886e6751e03522601265160086fe3a4956f04b87bd5c13",
+    "validation_clean_v1.csv": "b19efb6a908af12a5d2c6bdde29aa40984295e62ce0f187a201b579278db7ee8",
+    "nextlap_reference_v1.py": "f6c58925cd4a477bf3e1a5a2b3968e67df3a1cffabecee9e89701c3ac2d5f994"
+  }
+}

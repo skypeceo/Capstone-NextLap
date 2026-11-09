@@ -1,0 +1,5 @@
+# Verified by the instructor with numpy 2.0.2, pandas 2.3.1, scikit-learn 1.8.0.
+# Record the exact versions of your own run (outputs/reference_run.json -> "versions").
+numpy>=2.0
+pandas>=2.2
+scikit-learn>=1.6

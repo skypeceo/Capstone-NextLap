@@ -1,0 +1,10 @@
+model,population,n,MAE_s
+train_median,all_validation,1808,11.37611117256637
+train_median,round_8,1066,11.715781425891182
+train_median,round_9,742,10.88812129380054
+persistence,all_validation,1808,0.40928871681415924
+persistence,round_8,1066,0.4005159474671669
+persistence,round_9,742,0.42189218328840966
+OLS_reference,all_validation,1808,0.38670695036404323
+OLS_reference,round_8,1066,0.3735705571218997
+OLS_reference,round_9,742,0.4055794506283627

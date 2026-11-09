@@ -1,0 +1,4 @@
+trial_id,date,member,hypothesis,features_added,model,window_k,rows_train,rows_validation,MAE_all_s,MAE_R8_s,MAE_R9_s,status,notes
+T0,<date>,<Member 1>,reference,none (6 reference inputs),OLS,-,5772,1808,0.3867,0.3736,0.4056,done,Own reproduction of the reference (Hito 1)
+T1,,,pace variability,recent_std_s + short_history,OLS,3,5772,1808,,,,planned (Hito 2),Primary candidate
+T2,,,pace variability,recent_std_s + short_history,OLS,5,5772,1808,,,,planned (Hito 2),Only other window in the declared search
