@@ -22,11 +22,12 @@ Members: Benjamin Levit, Martin Olivares
 
 ## AI use
 
-We used Claude on 06–08 Nov 2026.
+We used Claude on 06–09 Nov 2026.
 
 | Use | Adopted? | How we checked it |
 | --- | --- | --- |
 | Analysis of the brief, rubric and data package | Partly: used as a checklist | Compared against the brief and rubric text |
+| Reproduction script `run_reference.py` (adapted from the course helper `probar_referencia_v1.py`) | Yes | Ran it ourselves (Python 3.13.5, numpy 2.5.4, pandas 3.1.1, scikit-learn 1.9.1); MAE identical to the supplied `reference_metrics.csv`; asserts on counts, rounds and pair_ids pass |
 | Choice of direction | Suggestion considered; decision taken by the team | Reasons recorded in the decisions table |
 
 ## Contributions

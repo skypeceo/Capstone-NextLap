@@ -49,5 +49,55 @@ MAE in seconds on the same validation rows (own run, 2026-11-09, Python 3.13.5, 
 
 ## 4. Experiment plan
 
+**Fixed controls.** Everything except the added information stays the same as in Section 2:
+
+| Control | Fixed value |
+| --- | --- |
+| Target and metric | `next_lap_s`; MAE in seconds |
+| Rows | The same 5,772 training and 1,808 validation `pair_id`s (asserted against `outputs/validation_pair_ids.txt`) |
+| Split | By race: train rounds 1–7, validation rounds 8–9; validation is never added to training |
+| Preprocessing | The same `make_model` Pipeline (imputers, scaler, one-hot), fitted on training only |
+| Model | OLS |
+| Seed | `RANDOM_SEED = 414` |
+
+**Reference, extension and ablation.**
+
+| Experiment | Information | Model | Rows | Metric | Isolates |
+| --- | --- | --- | --- | --- | --- |
+| A. Reference | 6 reference inputs | OLS | Common rows | MAE overall + by race, with n | Baseline |
+| B. Extension | 6 inputs + `recent_std_s` + `short_history` | OLS | Same rows | Same | Reference + variability |
+| C. Without added information | B with `recent_std_s` and `short_history` removed | OLS | Same rows | Same | B − C = contribution of variability |
+
+With OLS, C equals A. Only one thing changes between B and C. If we later try another model family (e.g. Ridge), we also run that same model without the feature, so a model gain is not attributed to the feature.
+
+**Bounded search.** Window k ∈ {3, 5} (k = 3 matches `recent_mean_s`). That makes 2 trials in total, all logged in `TRIAL_LOG.csv`, including unsuccessful ones. No other settings are tuned.
+
+**Selection vs. final evaluation.** Validation (R8–R9) is used only to choose k, and it is reported as selection evidence, not as final performance. The instructor's reserved final data is not accessed and is not used to choose features, settings or models. Prior access: none.
+
+**Checks written before implementing (run in Hito 2).**
+
+| Check | Evidence | Failure condition |
+| --- | --- | --- |
+| Time rule | Recompute the feature after deleting all laps after t from the raw data | Any pair whose value changes |
+| Boundaries | Group by season/round/driver/stint; inspect laps around a pit stop | A window mixing two stints or drivers |
+| Same rows | Assert the validation `pair_id` set equals `validation_pair_ids.txt`; re-run the reference | n ≠ 1,808, a missing or duplicated ID, or reference MAE ≠ 0.3867 s |
+| Missing data | Count `short_history = 1` in train (expected 456) and validation (expected 148); check all predictions are finite | Different counts, NaN predictions or dropped rows |
+
+**What would support or contradict the hypothesis.**
+- Support: B has a lower MAE than A overall **and** in both R8 and R9.
+- Contradict: no gain, a gain in only one race, or a gain below ≈0.005 s (too small to tell from noise with only 2 validation races).
+- A negative result will be reported as such; it is still a valid outcome.
+
+**Planned robustness checks.** MAE by validation race with n (R8 n = 1,066, R9 n = 742), and MAE by `recent_count` (1, 2, 3) with n, for A and B. This checks whether any gain comes from drivers with full history or is hidden by the global MAE.
+
 ## 5. Traceability and next steps
+
+See `DECISION_LOG.md` for decisions, evidence, contributions and AI use.
+
+| Item | Content |
+| --- | --- |
+| Revision after feedback | Added the `short_history` flag after the class peer review (originally std = 0 only). Our first draft of sections 1 and 3 (pit-stop prediction; tyre columns already in the reference) was revised to the `next_lap_s` framing and the pace-variability hypothesis. |
+| Before Hito 2 | Benjamin Levit: implement `recent_std_s` + `short_history` inside the `build_pairs` logic; run the time-rule and boundary checks. Martin Olivares: run experiments A/B/C, MAE by race and by `recent_count` with n, and update `TRIAL_LOG.csv`. |
+| Known blocker | Confirm with Ángel (12 Nov) that std = 0 + flag is an acceptable short-history rule and that k = 5 can be computed from the as-of history view. |
+| Possible second step | Tyre life × compound interaction or traffic (gap to the car ahead from `end_time_s`), tested separately so it does not mix with this hypothesis. |
 

@@ -1,4 +1,4 @@
-# Hito 1 — NextLap (IIT414W) · cd 
+# Hito 1 — NextLap (IIT414W) 
 
 Members: Benjamin Levit, Martin Olivares
 
