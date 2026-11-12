@@ -6,9 +6,9 @@ Members: Benjamin Levit, Martin Olivares
 
 | Date | Decision | Evidence | Who |
 | --- | --- | --- | --- | 
-| 2026-11-06 | Use OLS with the 6 released inputs as the fixed reference | Own run: OLS 0.387 s vs. persistence 0.409 s on the same 1,808 rows, better in R8 and R9 | <Name> |
+| 2026-11-06 | Use OLS with the 6 released inputs as the fixed reference | Own run: OLS 0.387 s vs. persistence 0.409 s on the same 1,808 rows, better in R8 and R9 |  |
 | 2026-11-06 | Primary direction: recent pace history (variability) | Uses only released data; inspectable time rule; no external source needed. Weather was not loaded (`weather_loaded: false` in the manifest), so it would require an extra source and alignment. | Both |
-| 2026-11-06 | Reject `next_lap_s` as an input (worksheet proposal) | It is the target itself: leakage, not available at t | <Name> |
+| 2026-11-06 | Reject `next_lap_s` as an input (worksheet proposal) | It is the target itself: leakage, not available at t |  |
 | 2026-11-06 | Window k = 3 as the default | Matches `recent_mean_s` (`history_window = 3` in `build_pairs`), so both features describe the same laps | Martin |
 | 2026-11-06 | Keep OLS as the only model for the comparison | The rubric and bonus rules require the same model with and without the feature, so a gain comes from the information | Benjamin |
 
