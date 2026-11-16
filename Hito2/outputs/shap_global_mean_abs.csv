@@ -1,0 +1,9 @@
+explained_model,original_input,mean_abs_shap_s,sample
+OLS + pace variability k=3,recent_mean_s,7.404864442124866,"all validation rows R8-R9, n = 1808"
+OLS + pace variability k=3,current_lap_s,4.272503661218298,"all validation rows R8-R9, n = 1808"
+OLS + pace variability k=3,recent_std_s_k3,0.15467911484423097,"all validation rows R8-R9, n = 1808"
+OLS + pace variability k=3,short_history_k3,0.07968511381917871,"all validation rows R8-R9, n = 1808"
+OLS + pace variability k=3,current_team,0.06418621820485779,"all validation rows R8-R9, n = 1808"
+OLS + pace variability k=3,current_compound,0.03136693570344318,"all validation rows R8-R9, n = 1808"
+OLS + pace variability k=3,current_lap_number,0.0217141427575527,"all validation rows R8-R9, n = 1808"
+OLS + pace variability k=3,current_tyre_life,0.007998573323009734,"all validation rows R8-R9, n = 1808"

@@ -1,0 +1,5 @@
+# Environment used for the submitted run (see outputs/hito2_run.json)
+numpy==2.5.4
+pandas==3.1.1
+scikit-learn==1.9.1
+shap==0.54.1   # optional: cross-check of the exact linear SHAP

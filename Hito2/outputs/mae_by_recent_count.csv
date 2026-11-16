@@ -1,0 +1,10 @@
+version,recent_count,n,MAE_s
+OLS reference = matched control,1,148,0.3958864187208496
+OLS reference = matched control,2,173,0.42327450170350017
+OLS reference = matched control,3,1487,0.381538996296435
+OLS + pace variability k=3,1,148,0.45340648074218004
+OLS + pace variability k=3,2,173,0.43098302607856404
+OLS + pace variability k=3,3,1487,0.35427325447966196
+OLS + pace variability k=5,1,148,0.47295342957624237
+OLS + pace variability k=5,2,173,0.4301341361605162
+OLS + pace variability k=5,3,1487,0.3686484692344151

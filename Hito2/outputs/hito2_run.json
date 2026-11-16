@@ -1,0 +1,55 @@
+{
+  "commit_at_run": "a1c36a7ad760801446a89a37164a3db93080f808",
+  "command": "python Hito2/run_hito2.py --explain k3",
+  "test_used": false,
+  "seed": 414,
+  "train_rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "validation_rounds": [
+    8,
+    9
+  ],
+  "n_train": 5772,
+  "n_validation": 1808,
+  "fit_on": "training rows only (sklearn Pipeline)",
+  "versions_compared": [
+    "OLS reference = matched control",
+    "OLS + pace variability k=3",
+    "OLS + pace variability k=5"
+  ],
+  "coverage": {
+    "k3": {
+      "short_history_train": 456,
+      "short_history_validation": 148
+    },
+    "k5": {
+      "short_history_train": 366,
+      "short_history_validation": 108
+    }
+  },
+  "shap": {
+    "explained_model": "OLS + pace variability k=3",
+    "method": "exact linear SHAP: coef * (x - mean of training rows) on encoded inputs, summed per original input",
+    "background": "all 5,772 training rows",
+    "cross_check": "shap 0.54.1: max |diff| = 4.35e-01"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1"
+  },
+  "sha256": {
+    "train_clean_v1.csv": "43544f38cc9ef32b44886e6751e03522601265160086fe3a4956f04b87bd5c13",
+    "validation_clean_v1.csv": "b19efb6a908af12a5d2c6bdde29aa40984295e62ce0f187a201b579278db7ee8",
+    "nextlap_reference_v1.py": "f6c58925cd4a477bf3e1a5a2b3968e67df3a1cffabecee9e89701c3ac2d5f994",
+    "features_pace.csv": "328edf63bfb8a5c5d317e91cba8fbc7da27f091fd210e6ef8b5935dfedf921de"
+  }
+}

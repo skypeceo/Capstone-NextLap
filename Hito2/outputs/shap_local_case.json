@@ -1,0 +1,24 @@
+{
+  "explained_model": "OLS + pace variability k=3",
+  "selection_rule": "largest absolute error of the explained model on validation",
+  "pair_id": "2026-R9-23-L6",
+  "round": 9,
+  "observed_s": 105.128,
+  "prediction_s": 96.8739909964356,
+  "base_value_s": 86.7343023215523,
+  "contributions_s": {
+    "recent_mean_s": 6.366474906483915,
+    "current_lap_s": 4.103304589393191,
+    "recent_std_s_k3": -0.34211918351099774,
+    "short_history_k3": 0.04255687058730176,
+    "current_compound": 0.04252546854903159,
+    "current_lap_number": -0.032840926030760456,
+    "current_team": -0.0267744854594713,
+    "current_tyre_life": -0.013438565128927295
+  },
+  "base_plus_contributions_s": 96.8739909964356,
+  "tolerance_s": 1e-06,
+  "absolute_error_s": 8.254009003564406,
+  "control_prediction_s": 97.30292949744069,
+  "control_absolute_error_s": 7.8250705025593135
+}

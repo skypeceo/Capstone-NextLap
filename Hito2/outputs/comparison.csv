@@ -1,0 +1,5 @@
+version,inputs,n,MAE_s,control_minus_candidate_s
+persistence,next = current_lap_s,1808,0.40928871681415924,
+OLS reference = matched control,6 reference inputs,1808,0.38670695036404323,
+OLS + pace variability k=3,"6 reference inputs + recent_std_s_k3, short_history_k3",1808,0.36972818145613473,0.016978768907908504
+OLS + pace variability k=5,"6 reference inputs + recent_std_s_k5, short_history_k5",1808,0.38307001486981657,0.0036369354942266674

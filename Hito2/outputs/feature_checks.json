@@ -1,0 +1,36 @@
+{
+  "integrity": {
+    "rows_written": 7580,
+    "expected": 7580,
+    "pairs_not_found_in_raw": 0,
+    "duplicated_pair_id": 0,
+    "nan_values": 0
+  },
+  "last_observation_k3": {
+    "pairs_using_a_lap_after_t": 0
+  },
+  "last_observation_k5": {
+    "pairs_using_a_lap_after_t": 0
+  },
+  "time_rule_truncation": {
+    "pairs_tested": 200,
+    "seed": 414,
+    "values_changed": 0
+  },
+  "stint_boundary": {
+    "first_laps_with_history_k3": 0,
+    "first_laps_with_history_k5": 0
+  },
+  "coverage": {
+    "short_history_k3_train": 456,
+    "short_history_k3_validation": 148,
+    "short_history_k5_train": 366,
+    "short_history_k5_validation": 108,
+    "recent_count_1_train": 456,
+    "recent_count_1_validation": 148
+  },
+  "timeline_matches_reference": {
+    "pairs_compared": 7580,
+    "max_abs_diff_recent_mean_s": 0.0
+  }
+}
