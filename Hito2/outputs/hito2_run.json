@@ -1,5 +1,5 @@
 {
-  "commit_at_run": "a1c36a7ad760801446a89a37164a3db93080f808",
+  "commit_at_run": "df0265365ab7d3cda09969e57ddc3d5d0e0fb778",
   "command": "python Hito2/run_hito2.py --explain k3",
   "test_used": false,
   "seed": 414,
@@ -38,7 +38,7 @@
     "explained_model": "OLS + pace variability k=3",
     "method": "exact linear SHAP: coef * (x - mean of training rows) on encoded inputs, summed per original input",
     "background": "all 5,772 training rows",
-    "cross_check": "shap 0.54.1: max |diff| = 4.35e-01"
+    "cross_check": "shap 0.54.1 LinearExplainer, background = all 5772 training rows: max |contribution diff| = 0.00e+00 s, |base diff| = 0.00e+00 s"
   },
   "environment": {
     "python": "3.13.5",

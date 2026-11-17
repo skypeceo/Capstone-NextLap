@@ -159,9 +159,15 @@ assert np.allclose(recon, preds[explained], atol=1e-6), 'base + contributions !=
 shap_check = 'shap library not installed'
 try:
     import shap
-    ex = shap.LinearExplainer(reg, Z_tr, feature_perturbation='interventional')
+    # Use ALL training rows as background (shap's default masker subsamples only 100 rows)
+    masker = shap.maskers.Independent(Z_tr, max_samples=len(Z_tr))
+    ex = shap.LinearExplainer(reg, masker)
     sv = ex.shap_values(Z_va)
-    shap_check = f'shap {shap.__version__}: max |diff| = {float(np.abs(sv - phi).max()):.2e}'
+    diff = float(np.abs(sv - phi).max())
+    base_diff = float(abs(np.ravel(ex.expected_value)[0] - base_value))
+    shap_check = (f'shap {shap.__version__} LinearExplainer, background = all {len(Z_tr)} training rows: '
+                  f'max |contribution diff| = {diff:.2e} s, |base diff| = {base_diff:.2e} s')
+    assert diff < 1e-6 and base_diff < 1e-6, 'shap library disagrees with the exact decomposition'
 except Exception as e:  # noqa: BLE001
     shap_check = f'shap library unavailable ({type(e).__name__}); exact linear decomposition used'
 print('\nSHAP cross-check:', shap_check)
