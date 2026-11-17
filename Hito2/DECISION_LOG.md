@@ -37,8 +37,8 @@ We used Claude (Anthropic) on 16–17 Nov 2026.
 
 | Use | Representative prompt (translated) | Accepted / changed | How we verified it |
 | --- | --- | --- | --- |
-| Helped with `build_features.py` (feature + checks) | "How would we build the feature, with all its steps?" | Accepted; read block by block by Benjamin | Truncation test 0 changes; reproduces official `recent_mean_s`; manual std of `2026-R8-1-L10` (73.025, 73.013, 73.197 s → 0.1029 s) equals the CSV value |
-| Helped with `run_hito2.py` (comparison, ablation, errors, SHAP) | - | Accepted; SHAP background later corrected | Reference MAE identical to Hito 1 (0.3867 s); asserts on rounds, IDs, n-weighted pooling and base + contributions = prediction; `shap` library cross-check = 0 s |
+| Wrote `build_features.py` (feature + checks) | "How would we build the feature, with all its steps?" | Accepted; read block by block by Benjamin | Truncation test 0 changes; reproduces official `recent_mean_s`; manual std of `2026-R8-1-L10` (73.025, 73.013, 73.197 s → 0.1029 s) equals the CSV value |
+| Wrote `run_hito2.py` (comparison, ablation, errors, SHAP) | - | Accepted; SHAP background later corrected | Reference MAE identical to Hito 1 (0.3867 s); asserts on rounds, IDs, n-weighted pooling and base + contributions = prediction; `shap` library cross-check = 0 s |
 | Ran the first validation comparison (T1, T2) and a code test with random values (X0) while testing the scripts | - | Results then reproduced by our own run | Same MAE in our run (`outputs/comparison.csv`) |
 | Train-only exploration of candidate features on 9 Nov (E0) | "With what we have now, is it possible to improve the MAE?" | Not adopted as evidence; plan unchanged | Logged in `TRIAL_LOG.csv` |
 

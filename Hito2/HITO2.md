@@ -122,9 +122,8 @@ Source: `outputs/shap_local_case.json`.
 See `README.md`: data location and hashes, environment (`requirements.txt`), the two commands (`python Hito2/build_features.py`, then `python Hito2/run_hito2.py --explain k3`), and the map from each section of this report to the script and saved output that generate it. The run record (commit at run time, command, environment, input hashes, SHAP method and cross-check) is saved in `outputs/hito2_run.json`.
 
 ## 7. Each partner's explanation (C8)
-**Benjamin Levit.** Decision: building the feature from the raw laps before the clean-pair filter / the std = 0 + flag rule.
-Evidence: the truncation check changed 0 of 200 values / my hand calculation for 2026-R8-1-L10 (0.1029 s) matched the CSV.
-Limitation or next check: on short histories (recent_count = 1, n = 148) the candidate is 0.058 s worse, so the flag rule should be revised.
+**Benjamin Levit.** I decided to build the feature from the raw laps before the clean-pair filter, the evidence was that the truncation check changed 0 of 200 values.
+A limitation or next check was that on short histories (recent_count = 1, n = 148) the candidate is 0.058 s worse, so the flag rule should be revised.
 AI: Claude helped with the feature code and how verified it with hand calculation and reading the truncation check.
 
 **Martin Olivares.** I decided to keep k = 3 rather than k = 5, and to treat the OLS reference as the matched control so that only the added information changes. The ablation supports this: the control − candidate difference is +0.0170 s with k = 3 versus +0.0036 s with k = 5, and k = 3 improves both races (R8 +0.0148 s, R9 +0.0201 s) while k = 5 is worse in R8. A limitation is that the gain comes only from laps with a full 3-lap history: with `recent_count = 1` (n = 148) the candidate is 0.058 s worse, so the next check is a declared fallback to the control for short histories. AI (Claude) wrote the experiment script; I verified it by reproducing the Hito 1 reference MAE exactly, checking the n-weighted pooling, and by detecting and fixing a SHAP background mismatch (0.435 s → 0 s).
